@@ -1,0 +1,8 @@
+{
+    "main": {
+        "path" : "res://Scene/Main.tscn"
+    },
+    "lobby": {
+        "path" : "res://Scene/Lobby.tscn"
+    }
+}

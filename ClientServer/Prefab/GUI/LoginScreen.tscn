@@ -1,0 +1,152 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Script/Gui/LoginScreen/LoginScreen.gd" type="Script" id=1]
+[ext_resource path="res://Script/Gui/LoginScreen/PopUp.gd" type="Script" id=2]
+[ext_resource path="res://Script/Gui/LoginScreen/CreateAccountContainer.gd" type="Script" id=3]
+
+[node name="LoginScreen" type="Control"]
+anchor_right = 0.347
+anchor_bottom = 0.187
+margin_right = -14.56
+margin_bottom = 85.51
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoginContainer" type="Control" parent="."]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Username" type="LineEdit" parent="LoginContainer"]
+margin_right = 152.0
+margin_bottom = 24.0
+align = 1
+placeholder_text = "Username"
+caret_blink = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Password" type="LineEdit" parent="LoginContainer"]
+margin_top = 32.0
+margin_right = 152.0
+margin_bottom = 56.0
+align = 1
+secret = true
+placeholder_text = "Password"
+caret_blink = true
+
+[node name="LoginButton" type="Button" parent="LoginContainer"]
+margin_left = 8.0
+margin_top = 80.0
+margin_right = 144.0
+margin_bottom = 100.0
+text = "Login"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreateAccountButton" type="Button" parent="LoginContainer"]
+margin_left = 8.0
+margin_top = 112.0
+margin_right = 144.0
+margin_bottom = 132.0
+text = "Create"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreateAccountContainer" type="Control" parent="."]
+visible = false
+margin_right = 152.0
+margin_bottom = 192.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EmailAddress" type="LineEdit" parent="CreateAccountContainer"]
+margin_right = 152.0
+margin_bottom = 24.0
+align = 1
+placeholder_text = "Email"
+caret_blink = true
+
+[node name="Password" type="LineEdit" parent="CreateAccountContainer"]
+margin_top = 28.0
+margin_right = 152.0
+margin_bottom = 52.0
+align = 1
+secret = true
+placeholder_text = "Password"
+caret_blink = true
+
+[node name="RepeatPassword" type="LineEdit" parent="CreateAccountContainer"]
+margin_top = 56.0
+margin_right = 152.0
+margin_bottom = 80.0
+align = 1
+secret = true
+placeholder_text = "Repeat Password"
+caret_blink = true
+
+[node name="ConfirmButton" type="Button" parent="CreateAccountContainer"]
+margin_top = 96.0
+margin_right = 152.0
+margin_bottom = 116.0
+text = "CONFIRM"
+
+[node name="BackButton" type="Button" parent="CreateAccountContainer"]
+margin_top = 128.0
+margin_right = 152.0
+margin_bottom = 148.0
+text = "BACK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopUp" type="Control" parent="."]
+visible = false
+margin_left = -64.0
+margin_right = 224.0
+margin_bottom = 136.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="PopUp"]
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 256.0
+margin_bottom = 104.0
+color = Color( 0.192157, 0.192157, 0.192157, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PopUp"]
+margin_left = 24.0
+margin_top = 56.0
+margin_right = 256.0
+margin_bottom = 80.0
+text = "TRY CONNECTION..."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="PopUp"]
+visible = false
+margin_left = 80.0
+margin_top = 80.0
+margin_right = 192.0
+margin_bottom = 100.0
+text = "OK"
+[connection signal="button_down" from="LoginContainer/LoginButton" to="." method="_on_LoginButton_button_down"]
+[connection signal="button_down" from="LoginContainer/CreateAccountButton" to="." method="_on_CreateAccountButton_button_down"]
+[connection signal="button_down" from="CreateAccountContainer/ConfirmButton" to="CreateAccountContainer" method="_on_ConfirmButton_button_down"]
+[connection signal="button_down" from="CreateAccountContainer/BackButton" to="CreateAccountContainer" method="_on_BackButton_button_down"]
+[connection signal="button_down" from="PopUp/Button" to="PopUp" method="_on_Button_button_down"]
